@@ -1,7 +1,7 @@
 def maven_build() {
     
     echo "Running Maven Build"
-   sh 'mvn clean install'
+    sh 'mvn clean install'
 
 }
 
