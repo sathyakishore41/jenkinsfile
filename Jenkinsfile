@@ -29,6 +29,8 @@ pipeline {
                     maven_build.maven_build()
                 }
             }
+
+        }
         
         
     }
