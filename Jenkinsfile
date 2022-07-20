@@ -36,17 +36,17 @@ pipeline {
 
         }
 
-        stage('Trigger AWS Code Build') {
-            steps {
-                dir("java-hello-world-with-maven")
-                {
-                script 
-                {
-                   aws_codebuild.aws_codebuild("project-4")
-                }
-                }
-            }
-        }
+        // stage('Trigger AWS Code Build') {
+        //     steps {
+        //         dir("java-hello-world-with-maven")
+        //         {
+        //         script 
+        //         {
+        //            aws_codebuild.aws_codebuild("project-4")
+        //         }
+        //         }
+        //     }
+        // }
         
         
     }
