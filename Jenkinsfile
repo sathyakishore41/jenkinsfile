@@ -42,7 +42,7 @@ pipeline {
                 {
                 script 
                 {
-                    aws_codebuild.aws_codebuild("project-4")
+                   aws_codebuild.aws_codebuild("project-4")
                 }
                 }
             }
