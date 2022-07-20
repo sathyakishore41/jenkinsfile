@@ -20,7 +20,9 @@ pipeline {
             steps {
                 script 
                 {
-                    checkout_git.checkout_git("java-hello-world-with-maven")
+                  dir("dir1")  {checkout_git.checkout_git("java-hello-world-with-maven")}
+                  dir("dir2")  {checkout_git.checkout_git("simple-java-maven-app")}
+                                                                     
                 }
             }
         }
