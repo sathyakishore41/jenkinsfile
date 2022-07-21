@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script 
                 {
-                    dir("dir1") {maven_build.maven_build()}
+                    dir("sparkjava-war-example") {maven_build.maven_build()}
                 }
             }
 
