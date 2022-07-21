@@ -19,11 +19,17 @@ pipeline {
         stage('Checkout code from Git') {
             steps {
                 
-                parallel (
-                "1": {dir("java-hello-world-with-maven"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
-                "2": {dir("simple-java-maven-app"){script {checkout_git.checkout_git("simple-java-maven-app")}}}
-                )     
-            }
+                
+                 dir("sparkjava-war-example")
+                 {
+                     script {
+                         checkout_git.checkout_git("sparkjava-war-example", "master")
+                     }
+                 }
+
+                 
+
+                
         }
 
         stage('Maven Build') {
@@ -38,11 +44,11 @@ pipeline {
 
         stage('Trigger AWS Code Build') {
             steps {
-                dir("java-hello-world-with-maven")
+                dir("sparkjava-war-example")
                 {
                 script 
                 {
-                   aws_codebuild.aws_codebuild("project-4")
+                   aws_codebuild.aws_codebuild("project-5")
                 }
                 }
             }
