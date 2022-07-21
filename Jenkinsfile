@@ -19,10 +19,10 @@ pipeline {
         stage('Checkout code from Git') {
             steps {
                 
-                 
-                dir("java-hello-world-with-maven"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}
-                 
-                
+                parallel (
+                "1": {dir("java-hello-world-with-maven"){script {checkout_git.checkout_git("java-hello-world-with-maven")}}},
+                "2": {dir("simple-java-maven-app"){script {checkout_git.checkout_git("simple-java-maven-app")}}}
+                )     
             }
         }
 
