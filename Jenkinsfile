@@ -49,7 +49,7 @@ pipeline {
                 {
                 script 
                 {
-                   aws_codebuild.aws_codebuild("project-6")
+                   aws_codebuild.aws_codebuild("project-5")
                 }
                 }
             }
