@@ -20,10 +20,10 @@ pipeline {
             steps {
                 
                 
-                 dir("sparkjava-war-example")
+                 dir("boxfuse-sample-java-war-hello")
                  {
                      script {
-                         checkout_git.checkout_git("sparkjava-war-example", "master")
+                         checkout_git.checkout_git("boxfuse-sample-java-war-hello", "master")
                      }
                  }
 
@@ -45,7 +45,7 @@ pipeline {
 
         stage('Trigger AWS Code Build') {
             steps {
-                dir("sparkjava-war-example")
+                dir("boxfuse-sample-java-war-hello")
                 {
                 script 
                 {
