@@ -33,15 +33,15 @@ pipeline {
         }
      }
 
-        // stage('Maven Build') {  
-        //     steps {
-        //         script 
-        //         {
-        //             dir("sparkjava-war-example") {maven_build.maven_build()}
-        //         }
-        //     }
+        stage('Maven Build') {  
+            steps {
+                script 
+                {
+                    dir("sparkjava-war-example") {maven_build.maven_build()}
+                }
+            }
 
-        // }
+        }
 
         stage('Trigger AWS Code Build') {
             steps {
