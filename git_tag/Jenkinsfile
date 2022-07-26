@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script 
                 {
-                    create_tag.create.tag()
+                    create_tag.create.tag("${tag}")
                 }
             }
         }

@@ -1,4 +1,4 @@
- def create_tag() {
+ def create_tag(String tag) {
     
    
 
