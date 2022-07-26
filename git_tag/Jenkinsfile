@@ -3,12 +3,12 @@
 pipeline {
     agent any
    
-    }
+    
     stages {
 
         stage ('checkout code from Git'){
             steps{
-                script {checkout_git.checkout_git("Jenkinsfile")}
+                script {checkout_git.checkout_git("Jenkinsfile" , "main")}
             }
         }
         
@@ -28,5 +28,5 @@ pipeline {
         
     }
     
-
+}
 
