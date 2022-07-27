@@ -33,15 +33,24 @@ pipeline {
         }
      }
 
-        stage('Maven Build') {  
-            steps {
-                script 
-                {
-                    dir("sparkjava-war-example") {maven_build.maven_build()}
-                }
+      stage('create tag on git repo') {
+            steps {                                
+                 dir("sparkjava-war-example") {                        
+                script {create_tag.create_tag("${tag}")}                
+                 }
             }
-
         }
+         
+
+        // stage('Maven Build') {  
+        //     steps {
+        //         script 
+        //         {
+        //             dir("sparkjava-war-example") {maven_build.maven_build()}
+        //         }
+        //     }
+
+        // }
 
         stage('Trigger AWS Code Build') {
             steps {
@@ -49,7 +58,7 @@ pipeline {
                 {
                 script 
                 {
-                   aws_codebuild.aws_codebuild("project-7")
+                   aws_codebuild.aws_codebuild("project-7", "${tag}")
                 }
                 }
             }
