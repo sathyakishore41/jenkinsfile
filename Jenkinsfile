@@ -20,10 +20,10 @@ pipeline {
             steps {
                 
                 
-                 dir("sparkjava-war-example")
+                 dir("boxfuse-sample-java-war-hello")
                  {
                      script {
-                         checkout_git.checkout_git("sparkjava-war-example", "master")
+                         checkout_git.checkout_git("boxfuse-sample-java-war-hello", "master")
                      }
                  }
 
@@ -35,7 +35,7 @@ pipeline {
 
       stage('create tag on git repo') {
             steps {                                
-                 dir("sparkjava-war-example") {                        
+                 dir("boxfuse-sample-java-war-hello") {                        
                 script {create_tag.create_tag("${tag}")}                
                  }
             }
@@ -54,24 +54,24 @@ pipeline {
 
         stage('Trigger AWS Code Build') {
             steps {
-                dir("sparkjava-war-example")
+                dir("boxfuse-sample-java-war-hello")
                 {
                 script 
                 {
-                   aws_codebuild.aws_codebuild("project-7", "${tag}")
+                   aws_codebuild.aws_codebuild("project-5", "${tag}")
                 }
                 }
             }
         }
 
         
-        stage('deploy java to tomcat') {
-            steps {
-                   sh "echo env is ${ENVIRONMENT} "
-                    script {deploy_tomcat.deploy_tomcat("${tag}", "${ENVIRONMENT}")}
+        // stage('deploy java to tomcat') {
+        //     steps {
+        //            sh "echo env is ${ENVIRONMENT} "
+        //             script {deploy_tomcat.deploy_tomcat("${tag}", "${ENVIRONMENT}")}
                 
-            }
-        }               
+        //     }
+        // }               
         
         
     }
