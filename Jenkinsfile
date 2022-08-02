@@ -33,13 +33,13 @@ pipeline {
         }
      }
 
-      stage('create tag on git repo') {
-            steps {                                
-                 dir("boxfuse-sample-java-war-hello") {                        
-                script {create_tag.create_tag("${tag}")}                
-                 }
-            }
-        }
+    //   stage('create tag on git repo') {
+    //         steps {                                
+    //              dir("boxfuse-sample-java-war-hello") {                        
+    //             script {create_tag.create_tag("${tag}")}                
+    //              }
+    //         }
+    //     }
          
 
         // stage('Maven Build') {  
