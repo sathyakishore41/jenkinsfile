@@ -58,7 +58,8 @@ pipeline {
                 {
                 script 
                 {
-                   aws_codebuild.aws_codebuild("project-1", "${tag}")
+                //    aws_codebuild.aws_codebuild("project-1", "${tag}")
+                 aws_codebuild.aws_codebuild("project-1")
                 }
                 }
             }
